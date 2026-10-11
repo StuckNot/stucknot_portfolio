@@ -423,6 +423,30 @@ header.top.dk nav.pill a:hover,header.top.dk nav.pill a.on{color:#F7F2F4;backgro
   .bws{aspect-ratio:1/.86}
   .bw{width:90cqw}
 }
+/* studio: laptop with floating app panels */
+.lid .screen.w2{aspect-ratio:1360/611}
+.f-vis.sv{padding-bottom:13%}
+.fw{position:absolute;z-index:3;overflow:hidden;border-radius:14px;border:1px solid rgba(255,255,255,.2);background:#141416;box-shadow:0 40px 60px -26px rgba(0,0,0,.85),inset 0 1px 0 rgba(255,255,255,.12)}
+.fw img{display:block;width:100%;height:auto}
+.fw.p1{right:-2%;bottom:-2%;width:36%;transform:rotate(2deg)}
+.fw.p2{left:-3%;bottom:2%;width:34%;transform:rotate(-2.5deg);animation-delay:-3s}
+@media (max-width:639px){.fw.p1{right:0;width:46%}.fw.p2{left:0;width:38%}}
+/* guest faculty */
+.fac{background:linear-gradient(var(--bg),var(--bg))}
+.fac-grid{display:grid;gap:clamp(36px,5vw,80px);grid-template-columns:minmax(0,1fr)}
+@media (min-width:1024px){.fac-grid{grid-template-columns:minmax(0,5fr) minmax(0,7fr);align-items:start}.fac-copy{position:sticky;top:112px}}
+.fac-copy h2{font-size:clamp(2.3rem,4.3vw,3.9rem);line-height:.98}
+.fac-rows .row h3{line-height:1.15}
+.fac-copy p{margin:22px 0 0;max-width:30rem;font-size:16px;line-height:1.65}
+.steps{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:14px}
+.steps li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:14px;align-items:start;font-size:14px;color:var(--body)}
+.steps b{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-family:var(--mono);font-size:11px;font-weight:600;color:var(--accent);background:var(--tint)}
+.steps span{padding-top:5px}.steps strong{color:var(--fg)}
+.fac-copy .chips{margin-top:26px}
+.fac-cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:30px}
+.fac-rows .row h3{font-size:clamp(19px,2vw,26px)}
+.fac-note{margin-top:18px;font-size:12px;color:var(--muted)}
+#work{padding-bottom:0}
 /* project rail */
 .rail{position:fixed;right:18px;top:50%;transform:translateY(-50%);z-index:55;display:none;flex-direction:column;align-items:center;gap:10px;padding:14px 8px;border-radius:var(--r-pill);background:rgba(12,10,11,.72);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);opacity:0;pointer-events:none;transition:opacity .4s}
 .rail.show{opacity:1;pointer-events:auto}
@@ -507,7 +531,7 @@ footer{padding-block:48px calc(110px + env(safe-area-inset-bottom,0px))}
   <div class="wrap">
     <a class="wordmark" href="#top" aria-label="Stucknot, back to top">stuck<b>not</b></a>
     <nav class="pill" aria-label="Sections">
-      <a href="#work">Work</a><a href="#services">Services</a><a href="#learn">Learn</a><a href="#contact">Contact</a>
+      <a href="#work">Work</a><a href="#services">Services</a><a href="#learn">Learn</a><a href="#faculty">Faculty</a><a href="#contact">Contact</a>
     </nav>
     <div class="hdr-right">
       <button class="iconbtn" id="theme" type="button" aria-label="Switch light or dark theme">
@@ -608,7 +632,7 @@ footer{padding-block:48px calc(110px + env(safe-area-inset-bottom,0px))}
           <div class="f-copy rv">
             <div class="f-top">
               <span class="f-icon" aria-hidden="true">C</span>
-              <div class="f-meta"><span class="mono f-idx">01 / 05</span><span class="f-pill">Web app · College ERP · Live</span></div>
+              <div class="f-meta"><span class="mono f-idx">01 / 06</span><span class="f-pill">Web app · College ERP · Live</span></div>
             </div>
             <h3 class="f-name">CampusMaster</h3>
             <p class="f-tag">The next-generation college ERP.</p>
@@ -637,7 +661,7 @@ footer{padding-block:48px calc(110px + env(safe-area-inset-bottom,0px))}
           <div class="f-copy rv">
             <div class="f-top">
               <span class="f-icon" aria-hidden="true">A</span>
-              <div class="f-meta"><span class="mono f-idx">02 / 05</span><span class="f-pill">Android + web · Matrimony · In build</span></div>
+              <div class="f-meta"><span class="mono f-idx">02 / 06</span><span class="f-pill">Android + web · Matrimony · In build</span></div>
             </div>
             <h3 class="f-name">Asees Rishta</h3>
             <p class="f-tag">Private until it's a match.</p>
@@ -661,13 +685,42 @@ footer{padding-block:48px calc(110px + env(safe-area-inset-bottom,0px))}
       </div>
     </article>
 
+    <article class="feature" id="f-studio" style="--a:226 72 124;--a2:128 0 52;--ac:#F58DB1">
+      <div class="wrap">
+        <div class="f-grid">
+          <div class="f-copy rv">
+            <div class="f-top">
+              <span class="f-icon" aria-hidden="true">S</span>
+              <div class="f-meta"><span class="mono f-idx">03 / 06</span><span class="f-pill">In-house · Web app · AI · In pilot</span></div>
+            </div>
+            <h3 class="f-name">Stucknot Studio</h3>
+            <p class="f-tag">A week of posts, planned by AI.</p>
+            <p class="f-desc">Plans, writes and designs a week of on-brand Instagram carousels. It grew out of the slide maker we use for @stucknot, and now has a brand kit, an AI week planner, recurring series and Hindi layouts.</p>
+            <div class="chips"><span>React</span><span>Canvas</span><span>Gemini API</span><span>Brand kit</span><span>Hindi layouts</span></div>
+            <div class="f-cta">
+              <a class="btn" href="#contact"><span>Ask about Studio</span></a>
+              <span class="mono f-url">In pilot</span>
+            </div>
+          </div>
+          <div class="f-vis sv rv">
+            <div class="laptop">
+              <div class="lid"><i class="cam"></i><div class="screen w2"><img src="screenshots/studio-dashboard.webp" alt="Stucknot Studio weekly dashboard with a week of planned carousel posts" width="1360" height="611" loading="lazy" decoding="async"></div></div>
+              <div class="deck"></div>
+            </div>
+            <div class="fw p2 float" aria-hidden="true"><img src="screenshots/studio-slides.webp" alt="" width="368" height="228" loading="lazy" decoding="async"></div>
+            <div class="fw p1 float" aria-hidden="true"><img src="screenshots/studio-plan.webp" alt="" width="560" height="532" loading="lazy" decoding="async"></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
     <article class="feature" id="f-dashmesh" style="--a:39 116 210;--a2:18 52 120;--ac:#7DB4F7">
       <div class="wrap">
         <div class="f-grid">
           <div class="f-copy rv">
             <div class="f-top">
               <span class="f-icon" aria-hidden="true">D</span>
-              <div class="f-meta"><span class="mono f-idx">03 / 05</span><span class="f-pill">Web &amp; mobile app · Customer management</span></div>
+              <div class="f-meta"><span class="mono f-idx">04 / 06</span><span class="f-pill">Web &amp; mobile app · Customer management</span></div>
             </div>
             <h3 class="f-name">Dashmesh Mechanix</h3>
             <p class="f-tag">Customer management, shop-side.</p>
@@ -697,7 +750,7 @@ footer{padding-block:48px calc(110px + env(safe-area-inset-bottom,0px))}
           <div class="f-copy rv">
             <div class="f-top">
               <span class="f-icon f-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 3.9 5.6 3.9 9S14.600 18.400 12 21c-2.600-2.600-3.900-5.600-3.900-9S9.400 5.600 12 3z"/></svg></span>
-              <div class="f-meta"><span class="mono f-idx">04 / 05</span><span class="f-pill">Client work · 3 websites · All live</span></div>
+              <div class="f-meta"><span class="mono f-idx">05 / 06</span><span class="f-pill">Client work · 3 websites · All live</span></div>
             </div>
             <h3 class="f-name">Client websites</h3>
             <p class="f-tag">Built, launched and live.</p>
@@ -737,7 +790,7 @@ footer{padding-block:48px calc(110px + env(safe-area-inset-bottom,0px))}
           <div class="f-copy rv">
             <div class="f-top">
               <span class="f-icon" aria-hidden="true">P</span>
-              <div class="f-meta"><span class="mono f-idx">05 / 05</span><span class="f-pill">Mobile app · Fintech · Team experience</span></div>
+              <div class="f-meta"><span class="mono f-idx">06 / 06</span><span class="f-pill">Mobile app · Fintech · Team experience</span></div>
             </div>
             <h3 class="f-name">Pocketful</h3>
             <p class="f-tag">Markets, in real time.</p>
@@ -761,31 +814,6 @@ footer{padding-block:48px calc(110px + env(safe-area-inset-bottom,0px))}
       </div>
     </article>
 
-  <div class="wrap">
-    <div class="more rv"><h3>More from <em>the studio.</em></h3><span class="eyebrow">In-house product and training</span></div>
-    <div class="bento">
-
-      <a class="card wide rv" href="#contact">
-        <div class="meta"><span class="mono">In-house · Web app · AI</span><span class="status">In pilot</span></div>
-        <div class="split">
-          <div class="shot studio" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-          <div class="txt"><h3>Stucknot Studio</h3><p>Plans, writes and designs a week of on-brand Instagram carousels. Grew out of the slide maker we use for @stucknot, now with a brand kit, AI week planner and Hindi layouts.</p><div class="chips"><span>React</span><span>Canvas</span><span>Gemini API</span></div></div>
-        </div>
-      </a>
-
-      <a class="card rv" href="#learn">
-        <div class="meta"><span class="mono">Training · AI skills</span><span class="status">Weekly</span></div>
-        <div class="shot learn" aria-hidden="true">
-          <code>Rewrite my bullets for a <b>[role]</b> resume…</code>
-          <code>ROAS = sales from ads ÷ <b>ad spend</b></code>
-          <code>Keep my face exactly as it is…</code>
-        </div>
-        <h3>AI & skills training</h3>
-        <p>Free weekly guides, 30-second skill Reels and study notes on e-commerce, marketing and careers.</p>
-      </a>
-
-    </div>
-  </div>
 </section>
 
 <section id="services">
@@ -828,6 +856,38 @@ footer{padding-block:48px calc(110px + env(safe-area-inset-bottom,0px))}
         <h3>Skill training + placement support</h3>
         <p>Live cohorts on AI tools, e-commerce and digital marketing, with resume, LinkedIn and interview prep.</p>
         <hr><div class="foot"><span class="mono" style="color:var(--muted)">DM START on Instagram</span><a href="#contact">Enquire ↗</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faculty" class="fac">
+  <div class="wrap">
+    <div class="fac-grid">
+      <div class="fac-copy rv">
+        <div class="eyebrow">Guest faculty</div>
+        <h2 style="margin-top:16px">Bring a practitioner <em>to your campus.</em></h2>
+        <p>Colleges, institutes and teams can invite Stucknot for guest lectures, workshops and live cohorts on AI and digital skills, taught by people who build and ship products.</p>
+        <ol class="steps">
+          <li><b>01</b><span><strong>Invite us.</strong> Tell us the topic, your audience and a rough date.</span></li>
+          <li><b>02</b><span><strong>We reply with a plan.</strong> Questions first, then a proposed session outline.</span></li>
+          <li><b>03</b><span><strong>We teach.</strong> On campus or online, with hands-on exercises.</span></li>
+        </ol>
+        <div class="chips"><span>Guest lecture</span><span>Workshop</span><span>Live cohort</span><span>On campus</span><span>Online</span></div>
+        <div class="fac-cta">
+          <a class="btn" href="mailto:info@stucknot.com?subject=Guest%20faculty%20invitation&body=Institution%3A%0ATopic%3A%0AAudience%20and%20size%3A%0APreferred%20dates%3A%0AOn%20campus%20or%20online%3A%0A"><span>Invite us</span></a>
+          <a class="ghost" href="mailto:info@stucknot.com">info@stucknot.com</a>
+        </div>
+      </div>
+      <div class="rv">
+        <div class="rows fac-rows">
+      <a class="row" href="mailto:info@stucknot.com?subject=Guest%20faculty%3A%20AI%20tools%20for%20careers&body=Institution%3A%0ATopic%3A%0AAudience%20and%20size%3A%0APreferred%20dates%3A%0AOn%20campus%20or%20online%3A%0A"><span class="n">01</span><div><h3>AI tools for careers</h3><p>Resumes, LinkedIn and interview prep with AI tools, for students and freshers.</p></div><span class="tags">Students · Placements</span><span class="arrow" aria-hidden="true">↗</span></a>
+      <a class="row" href="mailto:info@stucknot.com?subject=Guest%20faculty%3A%20E-commerce%20and%20selling%20online&body=Institution%3A%0ATopic%3A%0AAudience%20and%20size%3A%0APreferred%20dates%3A%0AOn%20campus%20or%20online%3A%0A"><span class="n">02</span><div><h3>E-commerce &amp; selling online</h3><p>Listing products with titles, keywords and prices, using Google Sheets and AI.</p></div><span class="tags">Sellers · Students</span><span class="arrow" aria-hidden="true">↗</span></a>
+      <a class="row" href="mailto:info@stucknot.com?subject=Guest%20faculty%3A%20Digital%20marketing&body=Institution%3A%0ATopic%3A%0AAudience%20and%20size%3A%0APreferred%20dates%3A%0AOn%20campus%20or%20online%3A%0A"><span class="n">03</span><div><h3>Digital marketing</h3><p>Ads, ROAS and content that gets read, explained with live examples.</p></div><span class="tags">Marketing · Ads</span><span class="arrow" aria-hidden="true">↗</span></a>
+      <a class="row" href="mailto:info@stucknot.com?subject=Guest%20faculty%3A%20Building%20with%20AI&body=Institution%3A%0ATopic%3A%0AAudience%20and%20size%3A%0APreferred%20dates%3A%0AOn%20campus%20or%20online%3A%0A"><span class="n">04</span><div><h3>Building with AI</h3><p>What a software studio ships: apps, websites and AI tools, from idea to launch.</p></div><span class="tags">Product · Tech</span><span class="arrow" aria-hidden="true">↗</span></a>
+      <a class="row" href="mailto:info@stucknot.com?subject=Guest%20faculty%3A%20Custom%20topic&body=Institution%3A%0ATopic%3A%0AAudience%20and%20size%3A%0APreferred%20dates%3A%0AOn%20campus%20or%20online%3A%0A"><span class="n">05</span><div><h3>Your topic</h3><p>Tell us what your students or team need and we will shape a session around it.</p></div><span class="tags">Custom</span><span class="arrow" aria-hidden="true">↗</span></a>
+        </div>
+        <p class="fac-note">Pick a topic to open an email with the details pre-filled. 200+ people trained so far.</p>
       </div>
     </div>
   </div>
@@ -878,16 +938,18 @@ footer{padding-block:48px calc(110px + env(safe-area-inset-bottom,0px))}
   <span class="n" id="rail-cur">01</span><span class="ln"></span>
   <a href="#f-campusmaster" data-f="0" style="--a:76 96 221;--a2:36 48 142" aria-label="CampusMaster">C</a>
   <a href="#f-asees" data-f="1" style="--a:158 48 82;--a2:86 20 46" aria-label="Asees Rishta">A</a>
-  <a href="#f-dashmesh" data-f="2" style="--a:39 116 210;--a2:18 52 120" aria-label="Dashmesh Mechanix">D</a>
-  <a href="#f-sites" data-f="3" style="--a:176 140 82;--a2:92 70 36" aria-label="Client websites"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 3.9 5.6 3.9 9S14.6 18.4 12 21c-2.6-2.6-3.9-5.6-3.9-9S9.4 5.6 12 3z"/></svg></a>
-  <a href="#f-pocketful" data-f="4" style="--a:112 84 245;--a2:56 36 150" aria-label="Pocketful">P</a>
-  <span class="ln"></span><span class="n">05</span>
+  <a href="#f-studio" data-f="2" style="--a:226 72 124;--a2:128 0 52" aria-label="Stucknot Studio">S</a>
+  <a href="#f-dashmesh" data-f="3" style="--a:39 116 210;--a2:18 52 120" aria-label="Dashmesh Mechanix">D</a>
+  <a href="#f-sites" data-f="4" style="--a:176 140 82;--a2:92 70 36" aria-label="Client websites"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 3.9 5.6 3.9 9S14.6 18.4 12 21c-2.6-2.6-3.9-5.6-3.9-9S9.4 5.6 12 3z"/></svg></a>
+  <a href="#f-pocketful" data-f="5" style="--a:112 84 245;--a2:56 36 150" aria-label="Pocketful">P</a>
+  <span class="ln"></span><span class="n">06</span>
 </aside>
 
 <nav class="tabbar" aria-label="Sections">
   <a href="#work" data-s="work"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="7.5" height="7.5" rx="2"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="2"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="2"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="2"/></svg><span>Work</span></a>
   <a href="#services" data-s="services"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M8 6 3 12l5 6M16 6l5 6-5 6"/></svg><span>Services</span></a>
   <a href="#learn" data-s="learn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 8l9-4 9 4-9 4z"/><path d="M7 10v5c0 1.5 2.2 3 5 3s5-1.5 5-3v-5"/></svg><span>Learn</span></a>
+  <a href="#faculty" data-s="faculty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M12 16v4M8 20h8M7 9l3 2 4-3 3 2"/></svg><span>Faculty</span></a>
   <a href="#contact" data-s="contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg><span>Contact</span></a>
 </nav>
 <div class="toast" id="toast" hidden></div>
@@ -940,7 +1002,7 @@ footer{padding-block:48px calc(110px + env(safe-area-inset-bottom,0px))}
     var so=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){var id=en.target.id;
       tabs.forEach(function(a){a.classList.toggle('on',a.dataset.s===id);});
       pills.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+id);});}});},{rootMargin:'-45% 0px -50% 0px'});
-    ['work','services','learn','contact'].forEach(function(id){so.observe(document.getElementById(id));});
+    ['work','services','learn','faculty','contact'].forEach(function(id){so.observe(document.getElementById(id));});
   }
 
 
