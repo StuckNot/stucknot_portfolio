@@ -211,6 +211,10 @@ h1.display .w>span{display:inline-block;animation:rise .95s cubic-bezier(.16,1,.
 .shot.learn code{font-family:var(--mono);font-size:11px;color:var(--fg);background:var(--card-solid);border:1px solid var(--line);border-radius:10px;padding:8px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .shot.learn code b{color:var(--accent);font-weight:600}
 
+.shot.img{background:var(--raised)}
+.shot.img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+.bento .feat .shot.img img{object-position:left top}
+.shot.img.fit img{object-fit:contain;object-position:center}
 @media (min-width:1100px){.bento .wide{grid-column:span 2}}
 .split{display:grid;gap:20px;grid-template-columns:minmax(0,1fr);align-items:center}
 @media (min-width:768px){.card.wide .split{grid-template-columns:minmax(0,5fr) minmax(0,6fr)}}
@@ -416,7 +420,7 @@ footer{padding-block:48px calc(110px + env(safe-area-inset-bottom,0px))}
     <div class="bento">
       <div class="card feat rv">
         <div class="meta"><span class="mono">Product · College ERP</span><span class="status">Live</span></div>
-        <div class="shot erp2" aria-hidden="true"><aside><span></span><span></span><span></span><span></span><span></span></aside><main><div></div><div></div><div></div><div></div><div></div></main></div>
+        <div class="shot img"><img src="screenshots/campusmaster.jpg" alt="CampusMaster college ERP dashboard" width="1267" height="790" loading="lazy"></div>
         <h3>CampusMaster</h3>
         <p>Stucknot's ERP for schools and colleges, used by 3+ institutions. Twenty connected modules run a campus from admissions to alumni.</p>
         <p>Academics and electives, timetables with clash checks, biometric attendance, fee ledgers and challans, grading and transcripts, with add-ons like hostel and scholarship portals.</p>
@@ -473,11 +477,35 @@ footer{padding-block:48px calc(110px + env(safe-area-inset-bottom,0px))}
 
       <a class="card rv" href="https://veloradesigns.in" target="_blank" rel="noopener">
         <div class="meta"><span class="mono">Client · Website</span><span class="status">Live</span></div>
-        <div class="shot velora" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="shot img"><img src="screenshots/velora.jpg" alt="Velora Interior website" width="1800" height="1125" loading="lazy"></div>
         <h3>Velora Interior</h3>
         <p>Website for a New Delhi interior design studio: a project gallery, a featured case study, and enquiry contacts on WhatsApp.</p>
         <div class="meta"><span class="mono" style="color:var(--muted)">veloradesigns.in</span><span class="arrow" aria-hidden="true">↗</span></div>
       </a>
+
+      <a class="card rv" href="https://farmandfriends.in" target="_blank" rel="noopener">
+        <div class="meta"><span class="mono">Client · Website</span><span class="status">Live</span></div>
+        <div class="shot img"><img src="screenshots/farmandfriends.jpg" alt="Farm &amp; Friends website" width="1800" height="1125" loading="lazy"></div>
+        <h3>Farm &amp; Friends</h3>
+        <p>Chemical-free, farm-fresh staples (rice, flour, lentils, spices and cold-pressed oils) delivered from Indian farms to the pantry in under 7 days.</p>
+        <div class="meta"><span class="mono" style="color:var(--muted)">farmandfriends.in</span><span class="arrow" aria-hidden="true">↗</span></div>
+      </a>
+
+      <a class="card rv" href="https://primeforensics.in/" target="_blank" rel="noopener">
+        <div class="meta"><span class="mono">Client · Website</span><span class="status">Live</span></div>
+        <div class="shot img"><img src="screenshots/primeforensics.jpg" alt="Prime Forensics website" width="1800" height="1125" loading="lazy"></div>
+        <h3>Prime Forensics</h3>
+        <p>A forensic services platform covering digital and mobile forensics, data recovery and email tracking, with Section 65B details and a client enquiry system.</p>
+        <div class="meta"><span class="mono" style="color:var(--muted)">primeforensics.in</span><span class="arrow" aria-hidden="true">↗</span></div>
+      </a>
+
+      <div class="card rv">
+        <div class="meta"><span class="mono">Client · Web + mobile app</span><span class="status">2025</span></div>
+        <div class="shot img fit"><img src="screenshots/dashmesh-mechanix.jpg" alt="Dashmesh Mechanix app screens" width="1294" height="582" loading="lazy"></div>
+        <h3>Dashmesh Mechanix</h3>
+        <p>Shop-side customer management with secure independent data storage and automated 2-month follow-up reminders to bring customers back.</p>
+        <div class="meta"><span class="mono" style="color:var(--muted)">Available on request</span></div>
+      </div>
     </div>
   </div>
 </section>
