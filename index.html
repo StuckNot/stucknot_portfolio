@@ -162,6 +162,12 @@ h1.display .w>span{display:inline-block;animation:rise .95s cubic-bezier(.16,1,.
 .float{animation:float 6s ease-in-out infinite}
 @keyframes float{50%{transform:translateY(-10px)}}
 
+@media (max-width:639px){
+  .stage{height:390px}
+  .w-erp{left:0;top:0;width:100%;height:210px}
+  .w-phone{right:0;top:96px;width:40%;max-height:none}
+  .w-ai{left:0;top:236px;bottom:auto;width:56%}
+}
 /* proof strip */
 .proof{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding-block:28px}
 .proof .wrap{display:grid;gap:24px;grid-template-columns:repeat(2,minmax(0,1fr))}
