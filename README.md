@@ -1,13 +1,21 @@
 # Stucknot — portfolio site
 
-A single static page: no build step, no dependencies. Open `index.html` in a browser, or upload the folder to any
-static host.
+A static page: no build step, no dependencies. Open `index.html` in a browser, or upload the folder to any static host.
 
 ```
-index.html     The whole page: styles (<style>), markup, and a small script (<script>) at the bottom.
-screenshots/   Project images, all WebP. Referenced from index.html.
-stcknt-logo.png  Brand logo (not used on the page yet; handy for a favicon or share image).
+index.html            Markup only.
+styles.css            All styles: tokens, layout, project stages, themes.
+main.js               All behaviour (theme toggle, clock, reveal, rail, client-site picker, copy email).
+screenshots/          Project images, all WebP. Referenced from index.html.
+favicon.png           Tab icon (64px).
+apple-touch-icon.png  iOS home-screen icon (180px).
+og.png                Social share image (1200x630).
+stcknot-logo.png      Brand logo (not used on the page yet).
+.prettierrc.json      Formatting settings. Run:  npx prettier --write styles.css main.js
 ```
+
+A tiny inline script in the `<head>` of `index.html` restores the saved theme before first paint (no flash). Everything
+else lives in `main.js`.
 
 ## Page structure
 
@@ -27,8 +35,9 @@ Pocketful. Each is dark whatever the site theme, tinted by two per-project colou
 ## Adding or changing a project stage
 
 1. Copy an existing `<article class="feature" id="f-…">` block in the **Work** section and edit the text.
-2. Set its colours in the `style` attribute: `--a` and `--a2` are space-separated RGB triples (light and dark shade of the
-   brand colour), `--ac` is a lighter hex used for text accents.
+2. Give the `<article>` a theme class, e.g. `theme-mything`, and define it once in `styles.css` (search for
+   "project themes"): `--a` and `--a2` are space-separated RGB triples (a light and a dark shade of the brand colour),
+   `--ac` is a lighter hex used for text accents. Put the same class on its link in the side rail so the two match.
 3. Pick a visual: laptop frame (`.laptop`), fanned phone cards (`.fan`), device trio (`.trio`), staggered iPhones
    (`.stag`) or browser stack (`.bws`).
 4. Update the "NN / 06" counters in each stage's `.f-idx`, and add a matching link in the side rail (`<aside class="rail">`).
@@ -45,8 +54,16 @@ Pocketful. Each is dark whatever the site theme, tinted by two per-project colou
 Search `index.html` for `TO FILL`. Open placeholders: the WhatsApp community link, the WhatsApp number, the training
 price and the LinkedIn link.
 
+## Share image and favicon
+
+`og.png`, `favicon.png` and `apple-touch-icon.png` are generated artwork. The `og:image` tag in `index.html` points to
+`https://stucknot.com/og.png`; change that URL if the site is hosted somewhere else, because social crawlers need an
+absolute address.
+
 ## Notes
 
 - Fonts (Montserrat, JetBrains Mono) come from Google Fonts and load without blocking the first paint.
 - The theme follows the visitor's system setting, with a manual toggle in the header (remembered in `localStorage`).
-- Guest-faculty "Invite us" buttons are `mailto:` links to `info@stucknot.com` with a pre-filled subject and body.
+- Guest-faculty "Invite us" buttons are `mailto:` links to `info@stucknot.com`. Each link carries its own subject in the
+  markup (`data-invite`); the shared message body is added once in `main.js` (`INVITE_BODY`).
+- The client-site picker tints the stage through `#f-sites[data-tint]` rules in `styles.css`; `main.js` only sets the index.
