@@ -26,6 +26,7 @@ else lives in `main.js`.
 | Services       | `services`    | Five service rows.                                                         |
 | Learn          | `learn`       | Free guides, WhatsApp community, paid cohort.                              |
 | Guest faculty  | `faculty`     | Topics institutions can invite Stucknot for; each row opens a pre-filled email. |
+| Book           | `book`        | Coming-soon stage for the book, with a CSS book cover (placeholder artwork). |
 | Contact        | `contact`     | Email and Instagram calls to action.                                       |
 
 The project stages are, in order: CampusMaster, Asees Rishta, Stucknot Studio, Dashmesh Mechanix, Client websites,
@@ -48,6 +49,20 @@ Pocketful. Each is dark whatever the site theme, tinted by two per-project colou
 - Use WebP. Keep the image roughly 2× its display width (about 1,400px for a laptop screen, about 600px wide for a phone).
 - Give every `<img>` explicit `width`/`height` so the page doesn't jump while it loads.
 - Lazy images are quietly fetched after the page loads, so they're ready before you scroll to them.
+
+## The book: coming soon -> live
+
+The book section (`<section id="book" data-state="soon">`) is a dark stage like the project sections but is not part of
+the project rail. While `data-state="soon"` it shows a "Notify me" email button. When the book is published:
+
+1. Set the `href` of `<a id="book-buy">` to the buy link.
+2. Change `data-state="soon"` to `data-state="live"` on the section. The "Notify me" button hides and "Get the book"
+   appears (see the `.when-soon` / `.when-live` rules in `styles.css`).
+3. Replace the CSS cover (`.bk-front` in `index.html`) with the real cover image if you have one, and update the
+   title, subtitle and "Coming soon" label to match.
+
+The cover is flat faces sharing one perspective, deliberately not `transform-style: preserve-3d` (Chromium drops parts
+of large preserve-3d layers when they are partly off-screen).
 
 ## Content still to fill in
 

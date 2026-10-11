@@ -2036,6 +2036,243 @@ header.top.dk nav.pill a.on {
   --a2: 28 46 104;
   --ac: #9db4f0;
 }
+/* book: coming-soon stage with a CSS 3D book */
+.theme-book {
+  --a: 214 160 80;
+  --a2: 122 84 28;
+  --ac: #e8c27e;
+}
+.book .f-grid {
+  grid-template-columns: minmax(0, 1fr);
+}
+@media (min-width: 1024px) {
+  .book .f-grid {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  }
+}
+.soon {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ac);
+}
+.soon::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ac);
+  box-shadow: 0 0 0 0 rgb(var(--a) / 0.6);
+  animation: ping-gold 2.4s infinite;
+}
+@keyframes ping-gold {
+  70% {
+    box-shadow: 0 0 0 8px rgb(var(--a) / 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgb(var(--a) / 0);
+  }
+}
+.book .f-name {
+  font-size: clamp(2.6rem, 5vw, 4.6rem);
+}
+.why {
+  margin: 26px 0 0;
+  padding: 4px 0 4px 18px;
+  max-width: 34rem;
+  border-left: 2px solid rgb(var(--a) / 0.7);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  line-height: 1.5;
+  color: var(--on-dark);
+}
+.book .f-desc {
+  max-width: 36rem;
+}
+.topics-h {
+  margin: 28px 0 0;
+  color: var(--muted);
+}
+.topics {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0 28px;
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 40rem;
+}
+@media (min-width: 640px) {
+  .topics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.topics li {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+  color: var(--body);
+}
+.topics li::before {
+  content: counter(t, decimal-leading-zero);
+  counter-increment: t;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ac);
+}
+.topics {
+  counter-reset: t;
+}
+.book .f-fine {
+  margin-top: 18px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.when-live {
+  display: none;
+}
+.book[data-state='live'] .when-live {
+  display: inline-flex;
+}
+.book[data-state='live'] .when-soon {
+  display: none;
+}
+/* the book itself */
+.book-vis {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 24px 0 40px;
+}
+/* The book is built from flat faces that share one perspective, not a preserve-3d scene:
+   Chromium drops parts of large preserve-3d layers when they are partly off-screen. */
+@property --ry {
+  syntax: '<angle>';
+  inherits: true;
+  initial-value: -30deg;
+}
+.bk {
+  --w: clamp(210px, 24vw, 330px);
+  --d: calc(var(--w) * 0.14);
+  --ry: -30deg;
+  --rx: 4deg;
+  position: relative;
+  width: var(--w);
+  height: calc(var(--w) * 1.4);
+  perspective: 1600px;
+  transition: --ry 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.book-vis:hover .bk {
+  --ry: -14deg;
+  --rx: 2deg;
+}
+.bk > * {
+  position: absolute;
+  backface-visibility: hidden;
+}
+.bk-front {
+  inset: 0;
+  transform: rotateY(var(--ry)) rotateX(var(--rx)) translateZ(calc(var(--d) / 2));
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: calc(var(--w) * 0.09);
+  overflow: hidden;
+  border-radius: 3px 8px 8px 3px;
+  color: #fff;
+  background:
+    radial-gradient(120% 70% at 85% 0%, rgb(var(--a) / 0.35), transparent 60%),
+    linear-gradient(155deg, #b0114a, #5c0a2b 55%, #260814);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+}
+.bk-front::before {
+  content: '';
+  position: absolute;
+  inset: calc(var(--w) * 0.045);
+  border: 1px solid rgb(var(--a) / 0.55);
+  border-radius: 2px 5px 5px 2px;
+  pointer-events: none;
+}
+.bk-front::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, rgba(255, 255, 255, 0.18), transparent 32%);
+  pointer-events: none;
+}
+.bk-front .k {
+  font-family: var(--mono);
+  font-size: calc(var(--w) * 0.034);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ac);
+}
+.bk-front h4 {
+  margin: 0;
+  font-weight: 800;
+  font-size: calc(var(--w) * 0.1);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  color: #fff;
+}
+.bk-front h4 em {
+  display: block;
+  margin-top: calc(var(--w) * 0.03);
+  font-weight: 300;
+  font-style: italic;
+  font-size: 0.62em;
+  letter-spacing: -0.02em;
+  color: var(--ac);
+}
+.bk-front .by {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 8px;
+  font-size: calc(var(--w) * 0.04);
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.78);
+}
+.bk-front .by b {
+  font-weight: 300;
+  font-size: calc(var(--w) * 0.075);
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+.bk-front .by b i {
+  font-style: normal;
+  font-weight: 800;
+  color: var(--ac);
+}
+.bk-pages {
+  top: 1.2%;
+  left: calc(50% - var(--d) / 2);
+  width: var(--d);
+  height: 97.6%;
+  transform: rotateY(var(--ry)) rotateX(var(--rx)) rotateY(90deg)
+    translateZ(calc(var(--w) / 2 - 2px));
+  background: repeating-linear-gradient(90deg, #f6f1e7 0 2px, #d8d0bf 2px 3px);
+}
+.bk-shadow {
+  position: absolute;
+  left: 50%;
+  bottom: 14px;
+  width: clamp(200px, 26vw, 360px);
+  height: 26px;
+  transform: translateX(-50%);
+  background: radial-gradient(closest-side, rgba(0, 0, 0, 0.75), transparent);
+  filter: blur(8px);
+  pointer-events: none;
+}
+@media (max-width: 639px) {
+  .bk {
+    --w: min(62vw, 250px);
+  }
+}
 /* project rail */
 .rail {
   position: fixed;

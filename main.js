@@ -125,8 +125,11 @@
 
   // featured-project rail: shows while a full-screen project is in view
   var rail = document.getElementById('rail'),
-    feats = [].slice.call(document.querySelectorAll('.feature')),
-    railLinks = rail.querySelectorAll('a'),
+    railLinks = [].slice.call(rail.querySelectorAll('a')),
+    feats = railLinks.map(function (a) {
+      return document.querySelector(a.getAttribute('href'));
+    }),
+    stages = [].slice.call(document.querySelectorAll('.feature')), // every dark stage, rail or not
     railCur = document.getElementById('rail-cur');
   function railTick() {
     var cur = -1,
@@ -136,7 +139,7 @@
       if (r.top < vh * 0.55 && r.bottom > vh * 0.45) cur = k;
     });
     rail.classList.toggle('show', cur > -1);
-    var dk = feats.some(function (f) {
+    var dk = stages.some(function (f) {
       var r = f.getBoundingClientRect();
       return r.top < 38 && r.bottom > 38;
     });
