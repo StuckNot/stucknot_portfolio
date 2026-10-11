@@ -256,6 +256,108 @@ h1.display .w>span{display:inline-block;animation:rise .95s cubic-bezier(.16,1,.
 .shot.velora i:nth-child(3){background:linear-gradient(160deg,#d9c9b5,#8c7a66)}
 .shot.velora i:nth-child(4){background:linear-gradient(160deg,#b9a48b,#5d4c3d)}
 @media (min-width:1100px){.bento .feat .shot{flex:1 1 auto;aspect-ratio:auto;min-height:240px}.bento .feat .shot.match{justify-content:center}.card.wide .split{flex:1}}
+
+/* featured projects: full-screen stages, always dark */
+.feature{--fg:#F7F2F4;--body:#CFC6CA;--muted:#9A8F95;--line:rgba(255,255,255,.13);--tint:rgba(255,255,255,.05);--accent:var(--ac);
+  position:relative;isolation:isolate;overflow:hidden;min-height:100svh;display:flex;align-items:center;color:var(--body);background:#09080A;
+  padding:clamp(104px,12vw,148px) 0 clamp(72px,8vw,110px)}
+.feature::before{content:"";position:absolute;inset:0;z-index:-2;
+  background:radial-gradient(60% 62% at 74% 46%,rgb(var(--a)/.36),transparent 72%),radial-gradient(45% 45% at 6% 104%,rgb(var(--a)/.18),transparent 70%),radial-gradient(40% 30% at 50% -6%,rgb(var(--a)/.14),transparent 70%)}
+.feature::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:88px 88px;
+  -webkit-mask-image:radial-gradient(70% 70% at 70% 50%,#000,transparent 75%);mask-image:radial-gradient(70% 70% at 70% 50%,#000,transparent 75%)}
+.f-grid{display:grid;gap:clamp(40px,5vw,72px);grid-template-columns:minmax(0,1fr);align-items:center}
+@media (min-width:1024px){.f-grid{grid-template-columns:minmax(0,6fr) minmax(0,7fr)}}
+.f-top{display:flex;align-items:center;flex-wrap:wrap;gap:12px 16px;margin-bottom:clamp(20px,3vw,32px)}
+.f-icon{width:64px;height:64px;border-radius:19px;display:grid;place-items:center;font-weight:800;font-size:26px;letter-spacing:-.04em;color:#fff;
+  background:linear-gradient(150deg,rgb(var(--a)),rgb(var(--a2)));box-shadow:0 18px 40px -14px rgb(var(--a)/.7),inset 0 1px 0 rgba(255,255,255,.4)}
+.f-meta{display:grid;gap:8px;justify-items:start}
+.f-idx{color:var(--muted)}
+.f-pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:var(--r-pill);padding:5px 14px;font-size:12px;font-weight:500;color:var(--body);background:var(--tint)}
+.f-name{font-weight:800;font-size:clamp(2.6rem,5vw,4.6rem);line-height:.92;letter-spacing:-.05em;margin:0;text-wrap:balance}
+.f-tag{font-style:italic;font-weight:300;font-size:clamp(1.4rem,2.5vw,2.3rem);line-height:1.15;letter-spacing:-.02em;color:var(--ac);margin:18px 0 0;text-wrap:balance}
+.f-desc{max-width:34rem;margin:22px 0 0;font-size:16px;line-height:1.65;color:var(--body)}
+.feature .chips{margin-top:24px}
+.feature .chips span{background:var(--tint);border-color:var(--line);color:var(--body)}
+.f-cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:32px}
+.f-cta .btn span{--pad:15px 26px;background:linear-gradient(rgb(var(--a)),rgb(var(--a2)))}
+.f-cta .ghost{color:var(--fg)}
+.f-url{color:var(--muted)}
+.f-vis{position:relative;min-width:0;perspective:1800px}
+.f-vis::before{content:"";position:absolute;inset:8% 4%;z-index:-1;background:radial-gradient(closest-side,rgb(var(--a)/.55),transparent);filter:blur(50px)}
+/* laptop */
+.laptop{position:relative;transform:rotateY(-6deg) rotateX(2deg);transform-origin:50% 60%;transition:transform .9s cubic-bezier(.16,1,.3,1);filter:drop-shadow(0 50px 50px rgba(0,0,0,.55))}
+.f-vis:hover .laptop{transform:rotateY(-1deg) rotateX(0)}
+.f-vis.lp{padding-right:3%}
+.lid{position:relative;padding:11px 11px 13px;border-radius:20px 20px 8px 8px;background:linear-gradient(160deg,#34343a,#141417 55%,#222226);border:1px solid #46464d;box-shadow:inset 0 1px 0 rgba(255,255,255,.18)}
+.lid .cam{position:absolute;left:50%;top:4px;width:5px;height:5px;border-radius:50%;background:#0a0a0c;transform:translateX(-50%);box-shadow:inset 0 0 0 1px #2a2a30}
+.lid .screen{position:relative;border-radius:9px;overflow:hidden;aspect-ratio:1267/790;background:#fff}
+.lid .screen img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top left;display:block}
+.lid .screen::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,.14),transparent 38%);pointer-events:none}
+.deck{position:relative;height:15px;margin:0 -5%;border-radius:2px 2px 22px 22px;background:linear-gradient(#d6d6db,#9a9aa2 60%,#6f6f77);box-shadow:inset 0 1px 0 #fff}
+.deck::before{content:"";position:absolute;left:50%;top:0;width:16%;height:6px;border-radius:0 0 10px 10px;background:linear-gradient(#8d8d95,#b5b5bb);transform:translateX(-50%)}
+/* floating glass cards */
+.fl{position:absolute;z-index:3;display:grid;gap:2px;padding:14px 18px;border-radius:18px;border:1px solid rgba(255,255,255,.16);background:rgba(18,14,16,.84);backdrop-filter:blur(16px) saturate(1.5);-webkit-backdrop-filter:blur(16px) saturate(1.5);box-shadow:0 30px 50px -24px rgba(0,0,0,.7)}
+.fl b{font-weight:800;font-size:clamp(22px,2.6vw,32px);letter-spacing:-.03em;color:var(--fg);line-height:1}
+.fl span{font-size:12px;color:#B9AEB4}
+.fl.a{left:-4%;bottom:-3%}.fl.b{right:0;top:-5%;animation-delay:-3s}
+/* phone-card fan */
+.fan{container-type:inline-size;position:relative;aspect-ratio:1/.8;width:88%;max-width:700px;margin-inline:auto}
+.pc{position:absolute;bottom:0;width:30cqw;height:66cqw;border-radius:3.6cqw;overflow:hidden;padding:3cqw 2.6cqw 0;
+  background:linear-gradient(162deg,var(--c1),var(--c2));border:1px solid rgba(255,255,255,.2);box-shadow:0 5cqw 8cqw -3cqw rgba(0,0,0,.65),inset 0 1px 0 rgba(255,255,255,.3);
+  transform-origin:50% 100%;transition:transform .8s cubic-bezier(.16,1,.3,1)}
+.pc .k{display:block;font-family:var(--mono);font-size:max(7px,1.35cqw);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.pc h4{margin:1cqw 0 0;max-width:20cqw;font-size:max(11px,2.6cqw);line-height:1.1;font-weight:800;letter-spacing:-.03em;color:#fff}
+.pc .bz{position:absolute;left:50%;top:16cqw;width:24.5cqw;transform:translateX(-50%);border:.8cqw solid #0a0a0c;border-bottom:0;border-radius:3.8cqw 3.8cqw 0 0;background:#0a0a0c;box-shadow:0 0 0 1px rgba(255,255,255,.14),0 2cqw 4cqw -1cqw rgba(0,0,0,.5)}
+.pc .bz img{display:block;width:100%;height:auto;border-radius:3cqw 3cqw 0 0}
+.pc:nth-child(1){left:0;z-index:1;--c1:#2E6FD8;--c2:#142F6B;transform:translateY(3cqw) rotate(-8deg)}
+.pc:nth-child(2){left:23.3cqw;z-index:3;--c1:#3C8DF0;--c2:#173C8A;transform:translateY(-1cqw) rotate(-3deg)}
+.pc:nth-child(3){left:46.6cqw;z-index:4;--c1:#2F7BE0;--c2:#112E70;transform:translateY(-1cqw) rotate(3deg)}
+.pc:nth-child(4){left:70cqw;z-index:2;--c1:#3A63D9;--c2:#1A2468;transform:translateY(3cqw) rotate(8deg)}
+.pc:nth-child(4) h4,.pc:nth-child(4) .k{margin-left:6cqw}
+.pc:nth-child(4) .k{display:block}
+.fan:hover .pc:nth-child(1){transform:translateY(1cqw) rotate(-10deg) translateX(-1.2cqw)}
+.fan:hover .pc:nth-child(2){transform:translateY(-2cqw) rotate(-4deg)}
+.fan:hover .pc:nth-child(3){transform:translateY(-2cqw) rotate(4deg)}
+.fan:hover .pc:nth-child(4){transform:translateY(1cqw) rotate(10deg) translateX(1.2cqw)}
+.fan-ui{position:absolute;z-index:6;left:0;bottom:-4%;display:grid;gap:2px;padding:12px 16px;border-radius:16px;border:1px solid rgba(255,255,255,.16);background:rgba(14,12,16,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 26px 44px -22px rgba(0,0,0,.8)}
+.fan-ui .mono{color:var(--muted);font-size:10px}
+.fan-ui b{font-size:15px;font-weight:700;color:var(--fg);letter-spacing:-.01em}
+.fan-ui .st{display:flex;gap:6px;margin-top:6px}
+.fan-ui .st i{font-style:normal;font-size:10px;font-weight:600;border-radius:999px;padding:3px 8px;background:rgba(95,162,245,.16);color:#9CC8FA;border:1px solid rgba(95,162,245,.3)}
+@media (max-width:1023px){.laptop{transform:none}.fl.a{left:2%}.fl.b{right:2%}}
+@media (max-width:639px){
+  .feature{min-height:0}
+  .fl{padding:10px 13px;border-radius:14px}.fl b{font-size:20px}.fl span{font-size:11px}.fl.a{bottom:-8%}.fl.b{top:-8%}
+  .fan-ui{display:none}
+  .fan{container-type:normal;aspect-ratio:auto;width:auto;max-width:none;display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;
+    margin-inline:calc(var(--gut) * -1);padding:12px var(--gut) 36px;scroll-padding-inline:var(--gut)}
+  .fan::-webkit-scrollbar{display:none}
+  .fan .pc,.fan:hover .pc:nth-child(n){position:relative;left:auto;bottom:auto;flex:0 0 66vw;width:66vw;height:90vw;transform:none !important;scroll-snap-align:start;container-type:inline-size;padding:6cqw 7cqw 0;border-radius:9cqw}
+  .pc .k{font-size:max(9px,3.4cqw)}
+  .pc h4{max-width:none;margin-top:2.5cqw;font-size:7.4cqw;line-height:1.08}
+  .pc:nth-child(4) h4,.pc:nth-child(4) .k{margin-left:0}
+  .pc .bz{top:34cqw;width:70cqw;border-width:2cqw;border-radius:9cqw 9cqw 0 0}
+  .pc .bz img{border-radius:7.4cqw 7.4cqw 0 0}
+}
+/* header over a dark project stage */
+header.top.dk{background:linear-gradient(rgba(9,8,10,.9),rgba(9,8,10,.55) 60%,transparent)}
+header.top.dk .wordmark{color:#F7F2F4}
+header.top.dk .iconbtn{color:#F7F2F4;border-color:rgba(255,255,255,.16);background:rgba(12,10,11,.5)}
+header.top.dk nav.pill{background:rgba(12,10,11,.55);border-color:rgba(255,255,255,.14)}
+header.top.dk nav.pill a{color:#9A8F95}
+header.top.dk nav.pill a:hover,header.top.dk nav.pill a.on{color:#F7F2F4;background:rgba(255,255,255,.08)}
+/* project rail */
+.rail{position:fixed;right:18px;top:50%;transform:translateY(-50%);z-index:55;display:none;flex-direction:column;align-items:center;gap:10px;padding:14px 8px;border-radius:var(--r-pill);background:rgba(12,10,11,.72);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);opacity:0;pointer-events:none;transition:opacity .4s}
+.rail.show{opacity:1;pointer-events:auto}
+@media (min-width:1100px){.rail{display:flex}}
+.rail .n{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:#CFC6CA}
+.rail .ln{width:1px;height:14px;background:rgba(255,255,255,.2)}
+.rail a{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;font-weight:800;font-size:14px;color:#fff;text-decoration:none;opacity:.5;background:linear-gradient(150deg,rgb(var(--a)),rgb(var(--a2)));transition:opacity .3s,transform .3s,box-shadow .3s}
+.rail a.on{opacity:1;transform:scale(1.12);box-shadow:0 0 0 2px rgba(255,255,255,.85)}
+.more{margin:clamp(56px,7vw,96px) 0 28px;display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.more h3{font-weight:800;font-size:clamp(1.6rem,3vw,2.4rem);letter-spacing:-.03em}
+.more h3 em{font-style:italic;font-weight:300;color:var(--accent)}
 /* services rows */
 .rows{border-top:1px solid var(--line)}
 .row{display:grid;grid-template-columns:2.2rem minmax(0,1fr) auto;gap:14px;align-items:center;padding:22px 12px;border-bottom:1px solid var(--line);position:relative;text-decoration:none;color:inherit}
@@ -420,20 +522,72 @@ footer{padding-block:48px calc(110px + env(safe-area-inset-bottom,0px))}
   <div class="wrap">
     <div class="sec-head rv">
       <div><div class="eyebrow">Selected work</div><h2 style="margin-top:16px">Things we've <em>built.</em></h2></div>
-      <p class="note">Our own products, client work, and what our team has shipped. 25+ products over 10+ years; a few of them below.</p>
+      <p class="note">Our own products, client work, and what our team has shipped. 25+ products over 10+ years; two of the biggest first.</p>
     </div>
+  </div>
 
-    <div class="bento">
-      <div class="card feat rv">
-        <div class="meta"><span class="mono">Product · College ERP</span><span class="status">Live</span></div>
-        <div class="shot img"><img src="screenshots/campusmaster.jpg" alt="CampusMaster college ERP dashboard" width="1267" height="790" loading="lazy"></div>
-        <h3>CampusMaster</h3>
-        <p>Stucknot's ERP for schools and colleges, used by 3+ institutions. Twenty connected modules run a campus from admissions to alumni.</p>
-        <p>Academics and electives, timetables with clash checks, biometric attendance, fee ledgers and challans, grading and transcripts, with add-ons like hostel and scholarship portals.</p>
-        <div class="chips"><span>20 modules</span><span>Biometric attendance</span><span>Fees</span><span>Transcripts</span></div>
-        <div class="links"><a href="https://campusmaster.net" target="_blank" rel="noopener">campusmaster.net ↗</a><a href="https://demo.campusmaster.net" target="_blank" rel="noopener">Try the demo ↗</a></div>
+    <article class="feature" id="f-campusmaster" style="--a:76 96 221;--a2:36 48 142;--ac:#9AA6FF">
+      <div class="wrap">
+        <div class="f-grid">
+          <div class="f-copy rv">
+            <div class="f-top">
+              <span class="f-icon" aria-hidden="true">C</span>
+              <div class="f-meta"><span class="mono f-idx">01 / 02</span><span class="f-pill">Web app · College ERP · Live</span></div>
+            </div>
+            <h3 class="f-name">CampusMaster</h3>
+            <p class="f-tag">The next-generation college ERP.</p>
+            <p class="f-desc">Stucknot's ERP for schools and colleges, used by 3+ institutions. Twenty connected modules run a campus from admissions to alumni: academics and electives, timetables with clash checks, biometric attendance, fee ledgers, grading and transcripts.</p>
+            <div class="chips"><span>20 modules</span><span>Biometric attendance</span><span>Fees &amp; challans</span><span>Transcripts</span></div>
+            <div class="f-cta">
+              <a class="btn" href="https://demo.campusmaster.net" target="_blank" rel="noopener"><span>Try the demo ↗</span></a>
+              <a class="ghost" href="https://campusmaster.net" target="_blank" rel="noopener">campusmaster.net ↗</a>
+            </div>
+          </div>
+          <div class="f-vis lp rv">
+            <div class="laptop">
+              <div class="lid"><i class="cam"></i><div class="screen"><img src="screenshots/campusmaster.jpg" alt="CampusMaster college ERP dashboard" width="1267" height="790" loading="lazy"></div></div>
+              <div class="deck"></div>
+            </div>
+            <div class="fl a float" aria-hidden="true"><b>20</b><span>connected modules</span></div>
+            <div class="fl b float" aria-hidden="true"><b>3+</b><span>institutions live</span></div>
+          </div>
+        </div>
       </div>
+    </article>
 
+    <article class="feature" id="f-dashmesh" style="--a:39 116 210;--a2:18 52 120;--ac:#7DB4F7">
+      <div class="wrap">
+        <div class="f-grid">
+          <div class="f-copy rv">
+            <div class="f-top">
+              <span class="f-icon" aria-hidden="true">D</span>
+              <div class="f-meta"><span class="mono f-idx">02 / 02</span><span class="f-pill">Web &amp; mobile app · Customer management</span></div>
+            </div>
+            <h3 class="f-name">Dashmesh Mechanix</h3>
+            <p class="f-tag">Customer management, shop-side.</p>
+            <p class="f-desc">A shop-focused customer management system with secure, independent data storage and automated 2-month follow-up reminders, in a streamlined interface built to improve customer retention and engagement.</p>
+            <div class="chips"><span>2-month reminders</span><span>Client profiles</span><span>Service history</span><span>EMI tracking</span></div>
+            <div class="f-cta">
+              <a class="btn" href="#contact"><span>Ask about this project</span></a>
+              <span class="mono f-url">Available on request</span>
+            </div>
+          </div>
+          <div class="f-vis rv">
+            <div class="fan">
+              <div class="pc"><span class="k">New client</span><h4>One clean form per client.</h4><div class="bz"><img src="screenshots/dashmesh-2.webp" alt="Dashmesh Mechanix new client form" width="278" height="582" loading="lazy"></div></div>
+              <div class="pc"><span class="k">Dashboard</span><h4>Visits at a glance.</h4><div class="bz"><img src="screenshots/dashmesh-1.webp" alt="Dashmesh Mechanix dashboard with visit totals" width="280" height="582" loading="lazy"></div></div>
+              <div class="pc"><span class="k">Client profile</span><h4>Every client's history.</h4><div class="bz"><img src="screenshots/dashmesh-3.webp" alt="Dashmesh Mechanix client profile and service history" width="278" height="582" loading="lazy"></div></div>
+              <div class="pc"><span class="k">EMI</span><h4>Dues and EMIs, tracked.</h4><div class="bz"><img src="screenshots/dashmesh-4.webp" alt="Dashmesh Mechanix EMI management list" width="275" height="582" loading="lazy"></div></div>
+            </div>
+            <div class="fan-ui float" aria-hidden="true"><span class="mono">Follow-up due</span><b>Call back in 2 months</b><div class="st"><i>Reminder</i><i>Auto</i></div></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  <div class="wrap">
+    <div class="more rv"><h3>More <em>work.</em></h3><span class="eyebrow">Client sites, products and team experience</span></div>
+    <div class="bento">
       <a class="card feat rv" href="#contact">
         <div class="meta"><span class="mono">Product · Android + web</span><span class="status">In build</span></div>
         <div class="shot match" aria-hidden="true">
@@ -505,13 +659,6 @@ footer{padding-block:48px calc(110px + env(safe-area-inset-bottom,0px))}
         <div class="meta"><span class="mono" style="color:var(--muted)">primeforensics.in</span><span class="arrow" aria-hidden="true">↗</span></div>
       </a>
 
-      <div class="card rv">
-        <div class="meta"><span class="mono">Client · Web + mobile app</span><span class="status">2025</span></div>
-        <div class="shot img fit"><img src="screenshots/dashmesh-mechanix.jpg" alt="Dashmesh Mechanix app screens" width="1294" height="582" loading="lazy"></div>
-        <h3>Dashmesh Mechanix</h3>
-        <p>Shop-side customer management with secure independent data storage and automated 2-month follow-up reminders to bring customers back.</p>
-        <div class="meta"><span class="mono" style="color:var(--muted)">Available on request</span></div>
-      </div>
     </div>
   </div>
 </section>
@@ -602,6 +749,13 @@ footer{padding-block:48px calc(110px + env(safe-area-inset-bottom,0px))}
   </div>
 </footer>
 
+<aside class="rail" id="rail" aria-label="Featured projects">
+  <span class="n" id="rail-cur">01</span><span class="ln"></span>
+  <a href="#f-campusmaster" data-f="0" style="--a:76 96 221;--a2:36 48 142" aria-label="CampusMaster">C</a>
+  <a href="#f-dashmesh" data-f="1" style="--a:39 116 210;--a2:18 52 120" aria-label="Dashmesh Mechanix">D</a>
+  <span class="ln"></span><span class="n">02</span>
+</aside>
+
 <nav class="tabbar" aria-label="Sections">
   <a href="#work" data-s="work"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="7.5" height="7.5" rx="2"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="2"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="2"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="2"/></svg><span>Work</span></a>
   <a href="#services" data-s="services"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M8 6 3 12l5 6M16 6l5 6-5 6"/></svg><span>Services</span></a>
@@ -660,6 +814,20 @@ footer{padding-block:48px calc(110px + env(safe-area-inset-bottom,0px))}
       pills.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+id);});}});},{rootMargin:'-45% 0px -50% 0px'});
     ['work','services','learn','contact'].forEach(function(id){so.observe(document.getElementById(id));});
   }
+
+
+  // featured-project rail: shows while a full-screen project is in view
+  var rail=document.getElementById('rail'),feats=[].slice.call(document.querySelectorAll('.feature')),
+      railLinks=rail.querySelectorAll('a'),railCur=document.getElementById('rail-cur');
+  function railTick(){
+    var cur=-1,vh=innerHeight;
+    feats.forEach(function(f,k){var r=f.getBoundingClientRect();if(r.top<vh*.55&&r.bottom>vh*.45)cur=k;});
+    rail.classList.toggle('show',cur>-1);
+    var dk=feats.some(function(f){var r=f.getBoundingClientRect();return r.top<38&&r.bottom>38;});
+    document.querySelector('header.top').classList.toggle('dk',dk);
+    if(cur>-1){railCur.textContent='0'+(cur+1);railLinks.forEach(function(a,k){a.classList.toggle('on',k===cur);});}
+  }
+  addEventListener('scroll',railTick,{passive:true});addEventListener('resize',railTick);railTick();
 
   // copy email
   var toast=document.getElementById('toast');
