@@ -385,6 +385,43 @@ header.top.dk nav.pill a:hover,header.top.dk nav.pill a.on{color:#F7F2F4;backgro
   .stag{aspect-ratio:1/1.1}
   .dev.s1{--w:36cqw;left:-6cqw;top:16cqw}.dev.s2{--w:46cqw;left:27cqw}.dev.s3{--w:36cqw;left:70cqw;top:20cqw}
 }
+/* client websites: selectable browser stack */
+.sites{margin-top:26px;border-top:1px solid var(--line)}
+.site{border-bottom:1px solid var(--line)}
+.site-h{display:grid;grid-template-columns:2.2rem minmax(0,1fr) auto;gap:10px;align-items:center;width:100%;padding:16px 2px;border:0;background:none;color:inherit;font:inherit;text-align:left;cursor:pointer}
+.site-h .n{font-family:var(--mono);font-size:11px;color:var(--muted);transition:color .4s}
+.site-h h4{margin:0;font-size:clamp(18px,1.9vw,22px);font-weight:800;letter-spacing:-.025em;color:var(--muted);transition:color .4s,transform .4s}
+.site-h .host{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--muted)}
+.site:hover .site-h h4{color:var(--fg)}
+.site.on .site-h h4{color:var(--fg);transform:translateX(4px)}
+.site.on .site-h .n{color:var(--ac)}
+.sbody{display:grid;grid-template-rows:0fr;transition:grid-template-rows .55s cubic-bezier(.16,1,.3,1)}
+.site.on .sbody{grid-template-rows:1fr}
+.sbody>div{overflow:hidden;padding-left:calc(2.2rem + 10px)}
+.sbody p{margin:0 0 10px;font-size:14px;line-height:1.6;color:var(--body);max-width:32rem}
+.sbody .q{font-style:italic;font-weight:300;font-size:17px;color:var(--ac);margin:2px 0 8px}
+.sbody a{display:inline-flex;margin:2px 0 18px;font-size:13px;font-weight:700;color:var(--fg);text-decoration:none;border-bottom:1px solid var(--ac)}
+.sbody a:hover{color:var(--ac)}
+.bws{container-type:inline-size;position:relative;aspect-ratio:1/.8;width:100%;max-width:820px;margin-inline:auto}
+.bw{position:absolute;left:0;bottom:0;width:88cqw;border-radius:1.6cqw;overflow:hidden;background:#101013;border:1px solid rgba(255,255,255,.17);cursor:pointer;transform-origin:0 100%;
+  box-shadow:0 5cqw 9cqw -3cqw rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.14);transition:transform .9s cubic-bezier(.16,1,.3,1),filter .6s}
+.bw .bar{display:flex;align-items:center;gap:.8cqw;padding:1.3cqw 1.8cqw;background:#18181c;border-bottom:1px solid rgba(255,255,255,.09)}
+.bw .bar i{width:1.2cqw;height:1.2cqw;border-radius:50%;background:#3a3a42}
+.bw .url{margin-left:1.4cqw;flex:1;display:flex;align-items:center;gap:.8cqw;height:3cqw;border-radius:1.6cqw;padding:0 1.6cqw;background:#101013;font-family:var(--mono);font-size:max(8px,1.35cqw);letter-spacing:.04em;color:#8d8d98;text-transform:none}
+.bw .url svg{width:1.5cqw;height:1.5cqw;flex:0 0 auto}
+.bw .pg{position:relative;aspect-ratio:1800/1125;background:#fff}
+.bw .pg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+.bw[data-pos="0"]{z-index:3;transform:none}
+.bw[data-pos="1"]{z-index:2;transform:translate(10cqw,-9cqw) scale(.94);filter:brightness(.62)}
+.bw[data-pos="2"]{z-index:1;transform:translate(18cqw,-17cqw) scale(.88);filter:brightness(.4)}
+.bw[data-pos="1"]:hover,.bw[data-pos="2"]:hover{filter:brightness(.85)}
+.f-ico{display:grid;place-items:center}.f-ico svg{width:30px;height:30px}
+@media (max-width:639px){
+  .bw[data-pos="1"]{transform:translate(6cqw,-8cqw) scale(.94)}
+  .bw[data-pos="2"]{transform:translate(10cqw,-15cqw) scale(.88)}
+  .bws{aspect-ratio:1/.86}
+  .bw{width:90cqw}
+}
 /* project rail */
 .rail{position:fixed;right:18px;top:50%;transform:translateY(-50%);z-index:55;display:none;flex-direction:column;align-items:center;gap:10px;padding:14px 8px;border-radius:var(--r-pill);background:rgba(12,10,11,.72);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);opacity:0;pointer-events:none;transition:opacity .4s}
 .rail.show{opacity:1;pointer-events:auto}
@@ -570,7 +607,7 @@ footer{padding-block:48px calc(110px + env(safe-area-inset-bottom,0px))}
           <div class="f-copy rv">
             <div class="f-top">
               <span class="f-icon" aria-hidden="true">C</span>
-              <div class="f-meta"><span class="mono f-idx">01 / 04</span><span class="f-pill">Web app · College ERP · Live</span></div>
+              <div class="f-meta"><span class="mono f-idx">01 / 05</span><span class="f-pill">Web app · College ERP · Live</span></div>
             </div>
             <h3 class="f-name">CampusMaster</h3>
             <p class="f-tag">The next-generation college ERP.</p>
@@ -599,7 +636,7 @@ footer{padding-block:48px calc(110px + env(safe-area-inset-bottom,0px))}
           <div class="f-copy rv">
             <div class="f-top">
               <span class="f-icon" aria-hidden="true">A</span>
-              <div class="f-meta"><span class="mono f-idx">02 / 04</span><span class="f-pill">Android + web · Matrimony · In build</span></div>
+              <div class="f-meta"><span class="mono f-idx">02 / 05</span><span class="f-pill">Android + web · Matrimony · In build</span></div>
             </div>
             <h3 class="f-name">Asees Rishta</h3>
             <p class="f-tag">Private until it's a match.</p>
@@ -629,7 +666,7 @@ footer{padding-block:48px calc(110px + env(safe-area-inset-bottom,0px))}
           <div class="f-copy rv">
             <div class="f-top">
               <span class="f-icon" aria-hidden="true">D</span>
-              <div class="f-meta"><span class="mono f-idx">03 / 04</span><span class="f-pill">Web &amp; mobile app · Customer management</span></div>
+              <div class="f-meta"><span class="mono f-idx">03 / 05</span><span class="f-pill">Web &amp; mobile app · Customer management</span></div>
             </div>
             <h3 class="f-name">Dashmesh Mechanix</h3>
             <p class="f-tag">Customer management, shop-side.</p>
@@ -653,13 +690,53 @@ footer{padding-block:48px calc(110px + env(safe-area-inset-bottom,0px))}
       </div>
     </article>
 
+    <article class="feature" id="f-sites" style="--a:176 140 82;--a2:92 70 36;--ac:#DDBB80">
+      <div class="wrap">
+        <div class="f-grid g2">
+          <div class="f-copy rv">
+            <div class="f-top">
+              <span class="f-icon f-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 3.9 5.6 3.9 9S14.600 18.400 12 21c-2.600-2.600-3.900-5.600-3.900-9S9.400 5.600 12 3z"/></svg></span>
+              <div class="f-meta"><span class="mono f-idx">04 / 05</span><span class="f-pill">Client work · 3 websites · All live</span></div>
+            </div>
+            <h3 class="f-name">Client websites</h3>
+            <p class="f-tag">Built, launched and live.</p>
+            <p class="f-desc">Business sites we built for clients, each with its own brand, content and enquiry flow. Pick one to bring it forward.</p>
+            <div class="sites">
+              <div class="site on" data-i="0">
+                <button class="site-h" type="button" aria-expanded="true"><span class="n">01</span><h4>Velora Interior</h4><span class="host">veloradesigns.in</span></button>
+                <div class="sbody"><div><p class="q">Homes that hold the warmth of living.</p><p>Website for a New Delhi interior design studio: a project gallery, a featured case study, and enquiry contacts on WhatsApp.</p><a href="https://www.veloradesigns.in/" target="_blank" rel="noopener">Visit veloradesigns.in ↗</a></div></div>
+              </div>
+              <div class="site" data-i="1">
+                <button class="site-h" type="button" aria-expanded="false"><span class="n">02</span><h4>Farm &amp; Friends</h4><span class="host">farmandfriends.in</span></button>
+                <div class="sbody"><div><p class="q">Farm to pantry in under 7 days.</p><p>Chemical-free, farm-fresh staples (rice, flour, lentils, spices and cold-pressed oils) delivered from Indian farms to the pantry in under 7 days.</p><a href="https://farmandfriends.in" target="_blank" rel="noopener">Visit farmandfriends.in ↗</a></div></div>
+              </div>
+              <div class="site" data-i="2">
+                <button class="site-h" type="button" aria-expanded="false"><span class="n">03</span><h4>Prime Forensics</h4><span class="host">primeforensics.in</span></button>
+                <div class="sbody"><div><p class="q">Truth through science. Justice through expertise.</p><p>A forensic services platform covering digital and mobile forensics, data recovery and email tracking, with Section 65B details and a client enquiry system.</p><a href="https://primeforensics.in/" target="_blank" rel="noopener">Visit primeforensics.in ↗</a></div></div>
+              </div>
+            </div>
+            <div class="f-cta">
+              <a class="btn" href="#contact"><span>Get a site like this</span></a>
+            </div>
+          </div>
+          <div class="f-vis rv">
+            <div class="bws">
+              <div class="bw" data-pos="0" data-i="0"><div class="bar"><i></i><i></i><i></i><span class="url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>veloradesigns.in</span></div><div class="pg"><img src="screenshots/velora.jpg" alt="Velora Interior website" width="1800" height="1125" loading="lazy"></div></div>
+              <div class="bw" data-pos="1" data-i="1"><div class="bar"><i></i><i></i><i></i><span class="url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>farmandfriends.in</span></div><div class="pg"><img src="screenshots/farmandfriends.jpg" alt="Farm &amp; Friends website" width="1800" height="1125" loading="lazy"></div></div>
+              <div class="bw" data-pos="2" data-i="2"><div class="bar"><i></i><i></i><i></i><span class="url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>primeforensics.in</span></div><div class="pg"><img src="screenshots/primeforensics.jpg" alt="Prime Forensics website" width="1800" height="1125" loading="lazy"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
     <article class="feature" id="f-pocketful" style="--a:112 84 245;--a2:56 36 150;--ac:#B3A6FF">
       <div class="wrap">
         <div class="f-grid g2">
           <div class="f-copy rv">
             <div class="f-top">
               <span class="f-icon" aria-hidden="true">P</span>
-              <div class="f-meta"><span class="mono f-idx">04 / 04</span><span class="f-pill">Mobile app · Fintech · Team experience</span></div>
+              <div class="f-meta"><span class="mono f-idx">05 / 05</span><span class="f-pill">Mobile app · Fintech · Team experience</span></div>
             </div>
             <h3 class="f-name">Pocketful</h3>
             <p class="f-tag">Markets, in real time.</p>
@@ -684,7 +761,7 @@ footer{padding-block:48px calc(110px + env(safe-area-inset-bottom,0px))}
     </article>
 
   <div class="wrap">
-    <div class="more rv"><h3>More <em>work.</em></h3><span class="eyebrow">Client sites, products and team experience</span></div>
+    <div class="more rv"><h3>More from <em>the studio.</em></h3><span class="eyebrow">In-house product and training</span></div>
     <div class="bento">
 
       <a class="card wide rv" href="#contact">
@@ -704,30 +781,6 @@ footer{padding-block:48px calc(110px + env(safe-area-inset-bottom,0px))}
         </div>
         <h3>AI & skills training</h3>
         <p>Free weekly guides, 30-second skill Reels and study notes on e-commerce, marketing and careers.</p>
-      </a>
-
-      <a class="card rv" href="https://veloradesigns.in" target="_blank" rel="noopener">
-        <div class="meta"><span class="mono">Client · Website</span><span class="status">Live</span></div>
-        <div class="shot img"><img src="screenshots/velora.jpg" alt="Velora Interior website" width="1800" height="1125" loading="lazy"></div>
-        <h3>Velora Interior</h3>
-        <p>Website for a New Delhi interior design studio: a project gallery, a featured case study, and enquiry contacts on WhatsApp.</p>
-        <div class="meta"><span class="mono" style="color:var(--muted)">veloradesigns.in</span><span class="arrow" aria-hidden="true">↗</span></div>
-      </a>
-
-      <a class="card rv" href="https://farmandfriends.in" target="_blank" rel="noopener">
-        <div class="meta"><span class="mono">Client · Website</span><span class="status">Live</span></div>
-        <div class="shot img"><img src="screenshots/farmandfriends.jpg" alt="Farm &amp; Friends website" width="1800" height="1125" loading="lazy"></div>
-        <h3>Farm &amp; Friends</h3>
-        <p>Chemical-free, farm-fresh staples (rice, flour, lentils, spices and cold-pressed oils) delivered from Indian farms to the pantry in under 7 days.</p>
-        <div class="meta"><span class="mono" style="color:var(--muted)">farmandfriends.in</span><span class="arrow" aria-hidden="true">↗</span></div>
-      </a>
-
-      <a class="card rv" href="https://primeforensics.in/" target="_blank" rel="noopener">
-        <div class="meta"><span class="mono">Client · Website</span><span class="status">Live</span></div>
-        <div class="shot img"><img src="screenshots/primeforensics.jpg" alt="Prime Forensics website" width="1800" height="1125" loading="lazy"></div>
-        <h3>Prime Forensics</h3>
-        <p>A forensic services platform covering digital and mobile forensics, data recovery and email tracking, with Section 65B details and a client enquiry system.</p>
-        <div class="meta"><span class="mono" style="color:var(--muted)">primeforensics.in</span><span class="arrow" aria-hidden="true">↗</span></div>
       </a>
 
     </div>
@@ -825,8 +878,9 @@ footer{padding-block:48px calc(110px + env(safe-area-inset-bottom,0px))}
   <a href="#f-campusmaster" data-f="0" style="--a:76 96 221;--a2:36 48 142" aria-label="CampusMaster">C</a>
   <a href="#f-asees" data-f="1" style="--a:158 48 82;--a2:86 20 46" aria-label="Asees Rishta">A</a>
   <a href="#f-dashmesh" data-f="2" style="--a:39 116 210;--a2:18 52 120" aria-label="Dashmesh Mechanix">D</a>
-  <a href="#f-pocketful" data-f="3" style="--a:112 84 245;--a2:56 36 150" aria-label="Pocketful">P</a>
-  <span class="ln"></span><span class="n">04</span>
+  <a href="#f-sites" data-f="3" style="--a:176 140 82;--a2:92 70 36" aria-label="Client websites"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 3.9 5.6 3.9 9S14.6 18.4 12 21c-2.6-2.6-3.9-5.6-3.9-9S9.4 5.6 12 3z"/></svg></a>
+  <a href="#f-pocketful" data-f="4" style="--a:112 84 245;--a2:56 36 150" aria-label="Pocketful">P</a>
+  <span class="ln"></span><span class="n">05</span>
 </aside>
 
 <nav class="tabbar" aria-label="Sections">
@@ -901,6 +955,21 @@ footer{padding-block:48px calc(110px + env(safe-area-inset-bottom,0px))}
     if(cur>-1){railCur.textContent='0'+(cur+1);railLinks.forEach(function(a,k){a.classList.toggle('on',k===cur);});}
   }
   addEventListener('scroll',railTick,{passive:true});addEventListener('resize',railTick);railTick();
+
+
+  // client websites: pick a site to bring its browser window forward
+  (function(){
+    var box=document.getElementById('f-sites');if(!box)return;
+    var rows=[].slice.call(box.querySelectorAll('.site')),wins=[].slice.call(box.querySelectorAll('.bw')),
+        pal=[['176 140 82','92 70 36','#DDBB80'],['196 112 58','110 58 24','#EBA46E'],['78 118 200','28 46 104','#9DB4F0']];
+    function pick(i){
+      rows.forEach(function(r,k){r.classList.toggle('on',k===i);r.querySelector('.site-h').setAttribute('aria-expanded',k===i?'true':'false');});
+      wins.forEach(function(w,k){w.dataset.pos=(k-i+3)%3;});
+      box.style.setProperty('--a',pal[i][0]);box.style.setProperty('--a2',pal[i][1]);box.style.setProperty('--ac',pal[i][2]);
+    }
+    rows.forEach(function(r,k){r.querySelector('.site-h').addEventListener('click',function(){pick(k);});});
+    wins.forEach(function(w,k){w.addEventListener('click',function(){pick(k);});});
+  })();
 
   // copy email
   var toast=document.getElementById('toast');
