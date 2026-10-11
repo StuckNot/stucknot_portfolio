@@ -1984,7 +1984,15 @@ header.top.dk nav.pill a.on {
   margin-top: 30px;
 }
 .fac-rows .row h3 {
-  font-size: clamp(19px, 2vw, 26px);
+  font-size: clamp(17px, 1.7vw, 22px);
+}
+.fac-cred {
+  margin: 20px 0 0;
+  padding-left: 14px;
+  border-left: 2px solid var(--accent);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--fg);
 }
 .fac-note {
   margin-top: 18px;
@@ -2101,7 +2109,7 @@ header.top.dk nav.pill a.on {
   display: grid;
   gap: 0 28px;
   grid-template-columns: minmax(0, 1fr);
-  max-width: 40rem;
+  max-width: 46rem;
 }
 @media (min-width: 640px) {
   .topics {
@@ -2112,10 +2120,25 @@ header.top.dk nav.pill a.on {
   display: flex;
   gap: 12px;
   align-items: baseline;
-  padding: 11px 0;
+  padding: 12px 0;
   border-bottom: 1px solid var(--line);
-  font-size: 14px;
   color: var(--body);
+}
+.topics li div {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+.topics li b {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--fg);
+}
+.topics li span {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--muted);
 }
 .topics li::before {
   content: counter(t, decimal-leading-zero);
