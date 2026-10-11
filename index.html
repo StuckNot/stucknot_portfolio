@@ -347,6 +347,27 @@ header.top.dk .iconbtn{color:#F7F2F4;border-color:rgba(255,255,255,.16);backgrou
 header.top.dk nav.pill{background:rgba(12,10,11,.55);border-color:rgba(255,255,255,.14)}
 header.top.dk nav.pill a{color:#9A8F95}
 header.top.dk nav.pill a:hover,header.top.dk nav.pill a.on{color:#F7F2F4;background:rgba(255,255,255,.08)}
+/* device trio (Asees Rishta) */
+.trio{container-type:inline-size;position:relative;aspect-ratio:1/.84;width:92%;max-width:720px;margin-inline:auto}
+.dev{--w:30cqw;position:absolute;bottom:0;width:var(--w);padding:calc(var(--w)*.032);border-radius:calc(var(--w)*.16);
+  background:linear-gradient(160deg,#2e2e34,#0b0b0d 52%,#1d1d21);border:1px solid rgba(255,255,255,.17);
+  box-shadow:0 5cqw 8cqw -3cqw rgba(0,0,0,.72),inset 0 1px 0 rgba(255,255,255,.22);transform-origin:50% 100%;transition:transform .8s cubic-bezier(.16,1,.3,1)}
+.dev img{display:block;width:100%;height:auto;border-radius:calc(var(--w)*.128);background:#fffaf3}
+.dev.c{--w:35cqw;left:32.5cqw;z-index:3;transform:translateY(-1cqw)}
+.dev.l{left:8cqw;z-index:1;transform:translateY(2.5cqw) rotate(-8deg)}
+.dev.r{left:62cqw;z-index:2;transform:translateY(2.5cqw) rotate(8deg)}
+.trio:hover .dev.c{transform:translateY(-3cqw)}
+.trio:hover .dev.l{transform:translateY(1cqw) rotate(-11deg) translateX(-1.5cqw)}
+.trio:hover .dev.r{transform:translateY(1cqw) rotate(11deg) translateX(1.5cqw)}
+.fl.t{display:flex;align-items:center;gap:10px}
+.fl.t svg{width:18px;height:18px;flex:0 0 auto;color:var(--ac)}
+.fl.t b{font-size:14px;letter-spacing:-.01em;line-height:1.25}
+.fl.t.a{left:-7%;bottom:4%}.fl.t.b{right:-2%;top:4%}
+@media (max-width:639px){
+  .trio{width:100%;aspect-ratio:1/1.02}
+  .dev.c{--w:54cqw;left:23cqw}.dev.l{--w:42cqw;left:-5cqw}.dev.r{--w:42cqw;left:63cqw}
+  .fl.t{display:none}
+}
 /* project rail */
 .rail{position:fixed;right:18px;top:50%;transform:translateY(-50%);z-index:55;display:none;flex-direction:column;align-items:center;gap:10px;padding:14px 8px;border-radius:var(--r-pill);background:rgba(12,10,11,.72);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);opacity:0;pointer-events:none;transition:opacity .4s}
 .rail.show{opacity:1;pointer-events:auto}
@@ -532,7 +553,7 @@ footer{padding-block:48px calc(110px + env(safe-area-inset-bottom,0px))}
           <div class="f-copy rv">
             <div class="f-top">
               <span class="f-icon" aria-hidden="true">C</span>
-              <div class="f-meta"><span class="mono f-idx">01 / 02</span><span class="f-pill">Web app · College ERP · Live</span></div>
+              <div class="f-meta"><span class="mono f-idx">01 / 03</span><span class="f-pill">Web app · College ERP · Live</span></div>
             </div>
             <h3 class="f-name">CampusMaster</h3>
             <p class="f-tag">The next-generation college ERP.</p>
@@ -555,13 +576,43 @@ footer{padding-block:48px calc(110px + env(safe-area-inset-bottom,0px))}
       </div>
     </article>
 
+    <article class="feature" id="f-asees" style="--a:158 48 82;--a2:86 20 46;--ac:#E8A0B6">
+      <div class="wrap">
+        <div class="f-grid">
+          <div class="f-copy rv">
+            <div class="f-top">
+              <span class="f-icon" aria-hidden="true">A</span>
+              <div class="f-meta"><span class="mono f-idx">02 / 03</span><span class="f-pill">Android + web · Matrimony · In build</span></div>
+            </div>
+            <h3 class="f-name">Asees Rishta</h3>
+            <p class="f-tag">Private until it's a match.</p>
+            <p class="f-desc">A matrimony app for Punjabi families, on Android and the web from one codebase. Filtered discovery, interests, chat once both sides agree, profile verification, and contact details kept private until a match.</p>
+            <div class="chips"><span>Flutter</span><span>Flutter Web</span><span>Supabase</span><span>Postgres RLS</span></div>
+            <div class="f-cta">
+              <a class="btn" href="#contact"><span>Talk to us about it</span></a>
+              <span class="mono f-url">In build</span>
+            </div>
+          </div>
+          <div class="f-vis rv">
+            <div class="trio">
+              <div class="dev l"><img src="screenshots/asees-interests.webp" alt="Asees Rishta interests screen with an empty state" width="720" height="1466" loading="lazy"></div>
+              <div class="dev r"><img src="screenshots/asees-profile.webp" alt="Asees Rishta profile screen with completeness meter" width="720" height="1466" loading="lazy"></div>
+              <div class="dev c"><img src="screenshots/asees-discover.webp" alt="Asees Rishta discover screen showing a profile" width="720" height="1466" loading="lazy"></div>
+            </div>
+            <div class="fl t a float" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><b>Phone number unlocks<br>after a match</b></div>
+            <div class="fl t b float" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><b>Chat opens when<br>both sides agree</b></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
     <article class="feature" id="f-dashmesh" style="--a:39 116 210;--a2:18 52 120;--ac:#7DB4F7">
       <div class="wrap">
         <div class="f-grid">
           <div class="f-copy rv">
             <div class="f-top">
               <span class="f-icon" aria-hidden="true">D</span>
-              <div class="f-meta"><span class="mono f-idx">02 / 02</span><span class="f-pill">Web &amp; mobile app · Customer management</span></div>
+              <div class="f-meta"><span class="mono f-idx">03 / 03</span><span class="f-pill">Web &amp; mobile app · Customer management</span></div>
             </div>
             <h3 class="f-name">Dashmesh Mechanix</h3>
             <p class="f-tag">Customer management, shop-side.</p>
@@ -588,26 +639,13 @@ footer{padding-block:48px calc(110px + env(safe-area-inset-bottom,0px))}
   <div class="wrap">
     <div class="more rv"><h3>More <em>work.</em></h3><span class="eyebrow">Client sites, products and team experience</span></div>
     <div class="bento">
-      <a class="card feat rv" href="#contact">
-        <div class="meta"><span class="mono">Product · Android + web</span><span class="status">In build</span></div>
-        <div class="shot match" aria-hidden="true">
-          <div class="prof"><i></i><div><b></b><s></s></div><em>♥</em></div>
-          <div class="prof"><i></i><div><b></b><s></s></div><em>♥</em></div>
-          <div class="prof"><i></i><div><b></b><s></s></div><em>♥</em></div>
-          <div class="lock">Phone number unlocks after a match</div>
-        </div>
-        <h3>Asees Rishta</h3>
-        <p>A matrimony app for Punjabi families, on Android and the web from one codebase.</p>
-        <p>Filtered discovery, interests, chat once both sides agree, profile verification, and contact details kept private until a match.</p>
-        <div class="chips"><span>Flutter</span><span>Flutter Web</span><span>Supabase</span><span>Postgres RLS</span></div>
-      </a>
 
-      <a class="card rv" href="#contact">
+      <a class="card wide rv" href="#contact">
         <div class="meta"><span class="mono">In-house · Web app · AI</span><span class="status">In pilot</span></div>
-        <div class="shot studio" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-        <h3>Stucknot Studio</h3>
-        <p>Plans, writes and designs a week of on-brand Instagram carousels. Grew out of the slide maker we use for @stucknot, now with a brand kit, AI week planner and Hindi layouts.</p>
-        <div class="chips"><span>React</span><span>Canvas</span><span>Gemini API</span></div>
+        <div class="split">
+          <div class="shot studio" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="txt"><h3>Stucknot Studio</h3><p>Plans, writes and designs a week of on-brand Instagram carousels. Grew out of the slide maker we use for @stucknot, now with a brand kit, AI week planner and Hindi layouts.</p><div class="chips"><span>React</span><span>Canvas</span><span>Gemini API</span></div></div>
+        </div>
       </a>
 
       <a class="card rv" href="#learn">
@@ -659,6 +697,11 @@ footer{padding-block:48px calc(110px + env(safe-area-inset-bottom,0px))}
         <div class="meta"><span class="mono" style="color:var(--muted)">primeforensics.in</span><span class="arrow" aria-hidden="true">↗</span></div>
       </a>
 
+      <a class="card empty rv" href="#contact">
+        <span class="mono" style="color:var(--muted)">Your project</span>
+        <h3>Have something to build?</h3>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
     </div>
   </div>
 </section>
@@ -752,8 +795,9 @@ footer{padding-block:48px calc(110px + env(safe-area-inset-bottom,0px))}
 <aside class="rail" id="rail" aria-label="Featured projects">
   <span class="n" id="rail-cur">01</span><span class="ln"></span>
   <a href="#f-campusmaster" data-f="0" style="--a:76 96 221;--a2:36 48 142" aria-label="CampusMaster">C</a>
-  <a href="#f-dashmesh" data-f="1" style="--a:39 116 210;--a2:18 52 120" aria-label="Dashmesh Mechanix">D</a>
-  <span class="ln"></span><span class="n">02</span>
+  <a href="#f-asees" data-f="1" style="--a:158 48 82;--a2:86 20 46" aria-label="Asees Rishta">A</a>
+  <a href="#f-dashmesh" data-f="2" style="--a:39 116 210;--a2:18 52 120" aria-label="Dashmesh Mechanix">D</a>
+  <span class="ln"></span><span class="n">03</span>
 </aside>
 
 <nav class="tabbar" aria-label="Sections">
