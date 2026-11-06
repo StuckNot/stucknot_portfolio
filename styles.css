@@ -594,30 +594,35 @@ h1.display .w > span {
   padding-top: 14px;
 }
 .ticker .line {
-  height: 28px;
   overflow: hidden;
   position: relative;
   margin-top: 6px;
+  /* height is driven by the inner text's line-height so it always clips cleanly */
+  height: 1.4em;
+  line-height: 1.4;
 }
 .ticker .line div {
   font-weight: 800;
-  font-size: 19px;
+  font-size: clamp(16px, 2.5vw, 19px);
   color: var(--fg);
   letter-spacing: -0.02em;
+  white-space: nowrap;       /* prevent wrapping that would push height > 1 line */
   position: absolute;
   inset: 0;
+  display: flex;
+  align-items: center;
   transition:
     transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
     opacity 0.5s,
     filter 0.5s;
 }
 .ticker .line div.out {
-  transform: translateY(-100%);
+  transform: translateY(-110%);
   opacity: 0;
   filter: blur(4px);
 }
 .ticker .line div.in {
-  transform: translateY(100%);
+  transform: translateY(110%);
   opacity: 0;
   filter: blur(4px);
 }
@@ -1001,6 +1006,24 @@ h1.display .w > span {
   box-shadow:
     0 18px 40px -14px rgb(var(--a) / 0.7),
     inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  overflow: hidden; /* clips the white pad to the icon's border-radius */
+}
+/* White app-icon tile for logos that have a light background (e.g. sn wordmark).
+   Fills the entire f-icon so the gradient doesn't bleed through. */
+.f-logo-pad {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background: #fff;
+}
+.f-logo-pad img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  display: block;
+  pointer-events: none;
 }
 .f-meta {
   display: grid;
@@ -1456,7 +1479,7 @@ header.top.dk nav.pill a.on {
   color: var(--on-dark);
   background: rgba(255, 255, 255, 0.08);
 }
-/* device trio (Asees Rishta) */
+/* device trio (Subhaag) */
 .trio {
   container-type: inline-size;
   position: relative;
@@ -1664,17 +1687,56 @@ header.top.dk nav.pill a.on {
 }
 .site-h {
   display: grid;
-  grid-template-columns: 2.2rem minmax(0, 1fr) auto;
-  gap: 10px;
+  grid-template-columns: 2rem 46px minmax(0, 1fr) auto;
+  gap: 14px;
   align-items: center;
   width: 100%;
-  padding: 16px 2px;
+  padding: 14px 2px;
   border: 0;
   background: none;
   color: inherit;
   font: inherit;
   text-align: left;
   cursor: pointer;
+}
+/* Dedicated obsidian brand emblem plate - never blends into white */
+.site-brand-plate {
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+  padding: 6px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.site:hover .site-brand-plate {
+  transform: translateY(-2px) scale(1.04);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+.site.on .site-brand-plate {
+  border-color: rgba(var(--a), 0.7);
+  background: linear-gradient(145deg, rgba(var(--a), 0.22) 0%, rgba(255, 255, 255, 0.03) 100%);
+  box-shadow: 0 0 20px rgba(var(--a), 0.35), 0 6px 16px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+.site-brand-plate img {
+  max-width: 30px;
+  max-height: 30px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.site:hover .site-brand-plate img {
+  transform: scale(1.08);
 }
 .site-h .n {
   font-family: var(--mono);
@@ -1718,7 +1780,55 @@ header.top.dk nav.pill a.on {
 }
 .sbody > div {
   overflow: hidden;
-  padding-left: calc(2.2rem + 10px);
+  padding-left: calc(2rem + 46px + 14px);
+  padding-bottom: 8px;
+}
+
+/* Browser mockup favicon */
+.bw-ico {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+  margin-right: 6px;
+  border-radius: 3px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@media (max-width: 480px) {
+  .site-h {
+    grid-template-columns: 1.5rem 38px minmax(0, 1fr);
+    gap: 10px;
+  }
+  .site-brand-plate {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    padding: 5px;
+  }
+  .site-brand-plate img {
+    max-width: 22px;
+    max-height: 22px;
+  }
+  .site-h .host {
+    display: none;
+  }
+  .sbody > div {
+    padding-left: calc(1.5rem + 38px + 10px);
+  }
+}
+.sbody a {
+  display: inline-flex;
+  margin: 4px 0 18px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--fg);
+  text-decoration: none;
+  border-bottom: 1px solid var(--ac);
+  transition: color 0.3s;
+}
+.sbody a:hover {
+  color: var(--ac);
 }
 .sbody p {
   margin: 0 0 10px;
@@ -1730,21 +1840,9 @@ header.top.dk nav.pill a.on {
 .sbody .q {
   font-style: italic;
   font-weight: 300;
-  font-size: 17px;
+  font-size: 16px;
   color: var(--ac);
   margin: 2px 0 8px;
-}
-.sbody a {
-  display: inline-flex;
-  margin: 2px 0 18px;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--fg);
-  text-decoration: none;
-  border-bottom: 1px solid var(--ac);
-}
-.sbody a:hover {
-  color: var(--ac);
 }
 .bws {
   container-type: inline-size;
@@ -2009,7 +2107,7 @@ header.top.dk nav.pill a.on {
   --a2: 36 48 142;
   --ac: #9aa6ff;
 }
-.theme-asees {
+.theme-subhaag {
   --a: 158 48 82;
   --a2: 86 20 46;
   --ac: #e8a0b6;
@@ -2358,6 +2456,41 @@ header.top.dk nav.pill a.on {
   opacity: 1;
   transform: scale(1.12);
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.85);
+}
+/* Rail links that contain logos need to clip their children */
+.rail a:has(img),
+.rail a:has(.rail-logo-pad) {
+  overflow: hidden;
+  padding: 0;
+}
+/* Edge-to-edge fill — for logos that are already app-icon shaped (dashmesh, pocketful) */
+.rail a img.rail-logo-cover {
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+  border-radius: 0; /* parent's border-radius clips it */
+}
+/* Padded float — for logos with a white/light background (sn logo).
+   Fills the entire button with white so it looks like a clean app icon tile. */
+.rail-logo-pad {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: #fff;
+  border-radius: 11px; /* match .rail a border-radius exactly */
+  pointer-events: none;
+  flex-shrink: 0;
+}
+.rail-logo-pad img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  display: block;
+  pointer-events: none;
 }
 .more {
   margin: clamp(56px, 7vw, 96px) 0 28px;

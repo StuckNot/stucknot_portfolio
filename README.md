@@ -29,7 +29,7 @@ else lives in `main.js`.
 | Book           | `book`        | Coming-soon stage for the book, with a CSS book cover (placeholder artwork). |
 | Contact        | `contact`     | Email and Instagram calls to action.                                       |
 
-The project stages are, in order: CampusMaster, Asees Rishta, Stucknot Studio, Dashmesh Mechanix, Client websites,
+The project stages are, in order: CampusMaster, Subhaag, Stucknot Studio, Dashmesh Mechanix, Client websites,
 Pocketful. Each is dark whatever the site theme, tinted by two per-project colours (`--a`, `--a2`) and a text accent
 (`--ac`) set in its inline `style`.
 
